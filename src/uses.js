@@ -15,14 +15,12 @@ export class Uses extends React.Component {
     }
 
     handleClick(e) {
-       
                 this.setState({
                     displayPrep: this.props.search.prepMethod,
-                    textPrep: "Preparation:"
-                })
-          
-        this.setState({results: e.target.value});
-    }
+                    textPrep: "Preparation:",
+                    results: e.target.value
+                });   
+    };
 
     render(){
         const resultRows = this.props.displayUses.map((item) => {
@@ -42,21 +40,21 @@ export class Uses extends React.Component {
 
         return (
             <div>
-            <table className="table">
-            <CSSTransitionGroup
-                transitionName="fade"
-                transitionEnterTimeout={700}>
-            
-                <thead>
-                    <tr>
-                        <th className="Table-header-Uses">{this.props.textUses}</th>
-                    </tr>
-                </thead>
-                 {resultRows}
-            </CSSTransitionGroup>
-            </table>
-            
+                <table className="table">
+                <CSSTransitionGroup
+                    transitionName="fade"
+                    transitionEnterTimeout={700}>
 
+                    <thead>
+                        <tr>
+                            <th className="Table-header-Uses">{this.props.textUses}</th>
+                        </tr>
+                    </thead>
+                    {resultRows}
+                    
+                </CSSTransitionGroup>
+                </table>
+            
                 <PrepMethod 
                     displayPrep={this.state.displayPrep}
                     search={this.props.search}

@@ -7,7 +7,6 @@ import { ROA } from './routeOfAdmin';
 import { Intro } from './intro.js';
 import './App.css';
 
-
 export default class App extends React.Component {
     constructor(props) {
         super(props)
@@ -36,8 +35,7 @@ export default class App extends React.Component {
         else if(e.target.value === 'Cinnamon') {
             this.setState({search: Cinnamon})
         }
-            
-        
+              
     };
 
     handleSubmit(e) {

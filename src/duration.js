@@ -25,8 +25,7 @@ export class Duration extends React.Component {
             this.setState({
                 results: e.target.value
             })
-        };
-        
+        };  
     }
     
     render(){
@@ -36,41 +35,39 @@ export class Duration extends React.Component {
                      <tr>
                          <td name="Duration" >     
                          <button className="Required-button" onClick={e => this.handleClick(e)}>Next</button>{item}
-                        </td> 
-                     
+                        </td>                    
                     </tr>
                 </tbody>
             );
         }, this);           
         return (
             <div>
-            <table className="table">
-            <CSSTransitionGroup
-                            transitionName="fade"
-                            transitionEnterTimeout={700}>
-                            
-                <thead>
-                    <tr>
-                        <th className="Table-header">{this.props.textDur}</th>
-                    </tr>
-                </thead>
-                 {resultRows}
-                 </CSSTransitionGroup>
-            </table>
+                <table className="table">
+                <CSSTransitionGroup
+                    transitionName="fade"
+                    transitionEnterTimeout={700}>           
+                    <thead>
+                        <tr>
+                            <th className="Table-header">{this.props.textDur}</th>
+                        </tr>
+                    </thead>
+                {resultRows}
+                </CSSTransitionGroup>
+                </table>
                 
                 
        
                 <Direction
-                        search={this.props.search}
-                        displayDire={this.state.displayDire}
-                        textDire={this.state.textDire}
-                        resultsUses={this.props.resultsUses}
-                        resultsSubPop={this.props.resultsSubPop}
-                        resultsROA={this.props.resultsROA}
-                        resultsPrep={this.props.resultsPrep}
-                        resultsDose={this.props.resultsDose}
-                        resultsDur={this.state.resultsDur}
-                        intervalId={this.props.intervalId} />
+                    search={this.props.search}
+                    displayDire={this.state.displayDire}
+                    textDire={this.state.textDire}
+                    resultsUses={this.props.resultsUses}
+                    resultsSubPop={this.props.resultsSubPop}
+                    resultsROA={this.props.resultsROA}
+                    resultsPrep={this.props.resultsPrep}
+                    resultsDose={this.props.resultsDose}
+                    resultsDur={this.state.resultsDur}
+                    intervalId={this.props.intervalId} />
             </div>
         )
     }

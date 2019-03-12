@@ -17,18 +17,18 @@ export class Risk extends React.Component {
 
         return (
             <div>
-            <table className="table">
-            <CSSTransitionGroup
-                transitionName="fade"
-                transitionEnterTimeout={700}>
-                <thead>
-                    <tr>
-                        <th className="Table-header">{this.props.textRisk}</th>
-                    </tr>
-                </thead>
-                 {resultRows}
-            </CSSTransitionGroup>
-            </table>
+                <table className="table">
+                <CSSTransitionGroup
+                    transitionName="fade"
+                    transitionEnterTimeout={700}>
+                    <thead>
+                        <tr>
+                            <th className="Table-header">{this.props.textRisk}</th>
+                        </tr>
+                    </thead>
+                    {resultRows}
+                </CSSTransitionGroup>
+                </table>
             </div>
         )
     }

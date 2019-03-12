@@ -40,19 +40,15 @@ export class Direction extends React.Component {
             resultsRisk={this.props.search.risk}
             />,
             confirmButton:<button type="submit" class="Confirm-Button" onClick={this.handleConfirm}>Confirm</button>
-                    });
+        });
 
         if(this.props.search.direction === 'n/a') {
             this.setState({results: ''})
 
         }else {
             this.setState({results: e.target.value})
-        }
-        
+        }    
     }
-    
-    
-    
 
     render(){
         const resultRows = this.props.displayDire.map((item) => {
@@ -68,23 +64,20 @@ export class Direction extends React.Component {
         }, this);
 
         return (
-            <div>
+            <div>    
+                <table className="table">
+                <CSSTransitionGroup
+                    transitionName="fade"
+                    transitionEnterTimeout={700}>
+                    <thead>
+                        <tr>
+                            <th className="Table-header">{this.props.textDire}</th>
+                        </tr>  
+                    </thead>
+                    {resultRows}
+                </CSSTransitionGroup>
+                </table>
             
-                
-            <table className="table">
-            <CSSTransitionGroup
-                transitionName="fade"
-                transitionEnterTimeout={700}>
-                <thead>
-                    <tr>
-                        <th className="Table-header">{this.props.textDire}</th>
-                    </tr>  
-                </thead>
-                 {resultRows}
-            </CSSTransitionGroup>
-            </table>
-            
-                
                 <Risk
                     search={this.props.search} 
                     displayRisk={this.state.displayRisk}

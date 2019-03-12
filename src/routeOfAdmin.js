@@ -1,8 +1,5 @@
 import React from 'react';
 import { Subpop } from './subPop';
-import { selectedROA } from './actions/index'
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import {CSSTransitionGroup} from 'react-transition-group'
 
 export class ROA extends React.Component {
@@ -24,12 +21,9 @@ export class ROA extends React.Component {
                 })
     }
 
-  
     render(){
-        
         const resultRows = this.props.displayROA.map((item) => {
             return (
-                
                 <tbody>
                      <tr>
                          <td>
@@ -45,21 +39,19 @@ export class ROA extends React.Component {
 
         return (
             <div className ="Container">
-                
-            <table className="table">
-            <CSSTransitionGroup
-                transitionName="fade"
-                transitionEnterTimeout={700}
-                >
-                
-                <thead>
-                    <tr>
-                        <th className="Table-header">{this.props.textROA}</th>
-                    </tr>
-                </thead>
-                 {resultRows}
-                 </CSSTransitionGroup>
-            </table>
+                <table className="table">
+                <CSSTransitionGroup
+                    transitionName="fade"
+                    transitionEnterTimeout={700}>
+            
+                    <thead>
+                        <tr>
+                            <th className="Table-header">{this.props.textROA}</th>
+                        </tr>
+                    </thead>
+                    {resultRows}
+                </CSSTransitionGroup>
+                </table>
             
                 <Subpop 
                         displaySubPop={this.state.displaySubPop}
@@ -74,15 +66,5 @@ export class ROA extends React.Component {
     }
     
 }
-const mapStateToProps = (state) => {
-    return {
-        resROA: state.resROA
-    };
-}
 
-const matchDispatchToProps = (dispatch) => {
-    return bindActionCreators({selectedROA: selectedROA}, dispatch)
-
-}
-export default connect(mapStateToProps, matchDispatchToProps)(ROA)
 

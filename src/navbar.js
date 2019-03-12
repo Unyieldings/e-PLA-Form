@@ -15,7 +15,6 @@ export class Navbar extends React.Component {
                         <a href="#">Placeholder</a>
                     </div>
                     
-
                 </div>
             </div>
         )

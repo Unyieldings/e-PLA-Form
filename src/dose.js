@@ -1,6 +1,5 @@
 import React from 'react';
 import { Duration } from './duration';
-import { CSSTransitionGroup } from 'react-transition-group';
 
 export class Dose extends React.Component {
     constructor(props) {
@@ -31,13 +30,11 @@ export class Dose extends React.Component {
         });
     }
     
-
     render(){
-
             return (
                 <div>
                     <h4 className="Dose-title">{this.props.textDose}</h4>
-                                           
+
                     <form onSubmit={e => this.handleSubmit(e)}>
                         <input
                             className="Dose-input"
@@ -51,8 +48,7 @@ export class Dose extends React.Component {
                         </input>
                         <button>Next</button>
                     </form>
-                    
-                
+                  
                 <Duration
                         search={this.props.search}
                         displayDur={this.state.displayDur}
