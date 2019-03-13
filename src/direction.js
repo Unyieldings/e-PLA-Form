@@ -39,7 +39,7 @@ export class Direction extends React.Component {
             resultsDire={this.state.results}
             resultsRisk={this.props.search.risk}
             />,
-            confirmButton:<button type="submit" class="Confirm-Button" onClick={this.handleConfirm}>Confirm</button>
+            confirmButton:<button type="submit" onClick={this.handleConfirm}>Confirm</button>
         });
 
         if(this.props.search.direction === 'n/a') {
@@ -51,32 +51,22 @@ export class Direction extends React.Component {
     }
 
     render(){
-        const resultRows = this.props.displayDire.map((item) => {
-            return (
-                <tbody className="Direction">
-                     <tr>
-                         <td name="Direction" >     
-                            <button className="Required-button" onClick={e => this.handleClick(e)}>Next</button>{item}
-                        </td>   
-                     </tr>
-                </tbody>
-            );  
-        }, this);
+        return(
+            <div className="Table">
+                <h4 className="Title">{this.props.textDire}</h4>
+                <ul className="Lists">
 
-        return (
-            <div>    
-                <table className="table">
-                <CSSTransitionGroup
-                    transitionName="fade"
-                    transitionEnterTimeout={700}>
-                    <thead>
-                        <tr>
-                            <th className="Table-header">{this.props.textDire}</th>
-                        </tr>  
-                    </thead>
-                    {resultRows}
-                </CSSTransitionGroup>
-                </table>
+                    <CSSTransitionGroup
+                        transitionName="fade"
+                        transitionEnterTimeout={700}>
+
+                    {this.props.displayDire.map((item) => {
+                        return <li key={item}>
+                        <button className="Required-button" onClick={e => this.handleClick(e)}>Next</button>
+                        {item}</li>})}
+
+                    </CSSTransitionGroup>
+                </ul>
             
                 <Risk
                     search={this.props.search} 

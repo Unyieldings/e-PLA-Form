@@ -32,7 +32,7 @@ export class Dose extends React.Component {
     
     render(){
             return (
-                <div>
+                <div className="Table">
                     <h4 className="Dose-title">{this.props.textDose}</h4>
 
                     <form onSubmit={e => this.handleSubmit(e)}>

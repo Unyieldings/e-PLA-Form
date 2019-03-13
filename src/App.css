@@ -1,11 +1,9 @@
 html {
     background-color: rgb(173, 218, 255);
-
 }
 
 body {
     margin: 0px;
-    
 }
 
 .Navbar {
@@ -51,14 +49,12 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Dropdown button */
 .Dropdown .Dropdown-button {
     font-size: 20px; 
     padding: 17px;
-    margin: 0; /* Important for vertical align on mobile phones */
+    margin: 0; 
 }
   
-/* Dropdown content (hidden by default) */
 .Dropdown-content {
     display: none;
     position: absolute;
@@ -68,7 +64,6 @@ body {
     z-index: 1;
   }
   
-/* Links inside the dropdown */
 .Dropdown-content a {
     float: none;
     color: black;
@@ -78,12 +73,10 @@ body {
     text-align: left;
 }
   
-/* Grey background color to dropdown links on hover */
 .Dropdown-content a:hover {
     background-color: #ddd;
 }
   
-/* Show the dropdown menu on hover */
 .Dropdown:hover .Dropdown-content {
     display: block;
 }
@@ -93,7 +86,6 @@ body {
     margin-right: 50px;
     margin-bottom: 100px;
     font-family: Arial, Helvetica, sans-serif;
-
 }
 
 .Intro-title {
@@ -107,16 +99,6 @@ body {
     margin-right: 100px;
 
 }
-.Duration,
-.Direction, 
-.Risk {
-    font-size: 17px;
-    margin-bottom: 25px;
-}
-
-.table, .Duration .Direction .Risk .Dose{
-    color: black;
-}
 
 .Container {
     border: 1px solid white;
@@ -127,50 +109,41 @@ body {
     padding: 10px;
     background-color: white;
     font-family: Georgia, 'Times New Roman', Times, serif;
-
 }
-.table {
-    
-    margin-bottom: 25px;
+
+.Lists {
+    list-style: none;
+    margin-bottom: 30px;
+}
+
+.Title {
+    margin: -2px;
+    font-size: 17px;
 }
 
 .Dose-title {
     margin-bottom: -13px;
 }
 
-td {
-    float: left;
-}
-
 .Dose-input {
     margin-bottom: 25px;
+    margin-left: 40px;
     width: 50px;
 }
-
-.Table-header {
-    float: left;
-    font-size: 17px;
-}
-
-.Table-header-Uses {
-    float: left;
-    
-}
-
-.Uses, .Prep, .Risks, .Direction {
-    display: block;
-}
-
 
 .Required-button {
     margin-right: 10px;
 }
 
-.Risk {
-    margin-bottom: 5px;
+.Risk li {
+    margin-bottom: 10px;
     list-style-type: circle;
-    
 }
+
+.Use li {
+    margin-bottom: 10px;
+}
+
 
 .Preview-button {
     margin-top: 10px;

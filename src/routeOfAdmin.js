@@ -22,36 +22,23 @@ export class ROA extends React.Component {
     }
 
     render(){
-        const resultRows = this.props.displayROA.map((item) => {
-            return (
-                <tbody>
-                     <tr>
-                         <td>
-                             <input type="radio" name="ROA" 
-                                    key={item}
-                                    value={item}
-                                    onChange={(e) => this.handleClick(e)} />{item}
-                        </td>   
-                     </tr>
-                </tbody>
-            );
-        }, this);
-
         return (
-            <div className ="Container">
-                <table className="table">
-                <CSSTransitionGroup
-                    transitionName="fade"
-                    transitionEnterTimeout={700}>
-            
-                    <thead>
-                        <tr>
-                            <th className="Table-header">{this.props.textROA}</th>
-                        </tr>
-                    </thead>
-                    {resultRows}
-                </CSSTransitionGroup>
-                </table>
+            <div className="Container">
+                <div className="Table">
+                <h4 className="Title">{this.props.textROA}</h4>
+
+                <ul className="Lists" >
+                    <CSSTransitionGroup
+                        transitionName="fade"
+                        transitionEnterTimeout={700}>
+
+                    {this.props.displayROA.map((item) => {
+                        return <li  key={item}>
+                        <input type="radio" name="ROA" value={item} onClick={e => this.handleClick(e)}></input>
+                        {item}</li>})}
+
+                    </CSSTransitionGroup>
+                </ul>
             
                 <Subpop 
                         displaySubPop={this.state.displaySubPop}
@@ -60,6 +47,7 @@ export class ROA extends React.Component {
                         resultsROA={this.state.results} 
                         intervalId={this.props.intervalId}
                         />    
+                </div>
             </div>
         
         )

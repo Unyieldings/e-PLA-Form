@@ -3,32 +3,25 @@ import { CSSTransitionGroup } from 'react-transition-group';
 
 export class Risk extends React.Component {
     render(){
-        const resultRows = this.props.displayRisk.map((item) => {
-            return (
-                <tbody className="Risks">
-                     <tr>
-                         <td className="Risk">     
-                            {item}
-                        </td>   
-                     </tr>
-                </tbody>
-            );
-        }, this);
+        return(
+            <div className="Table">
+                <h4 className="Title">{this.props.textRisk}</h4>
+                
+                <ul className="Lists">
+                    <div className="Risk">
 
-        return (
-            <div>
-                <table className="table">
-                <CSSTransitionGroup
-                    transitionName="fade"
-                    transitionEnterTimeout={700}>
-                    <thead>
-                        <tr>
-                            <th className="Table-header">{this.props.textRisk}</th>
-                        </tr>
-                    </thead>
-                    {resultRows}
-                </CSSTransitionGroup>
-                </table>
+                    <CSSTransitionGroup
+                        transitionName="fade"
+                        transitionEnterTimeout={700}>
+
+                    {this.props.displayRisk.map((item) => {
+                        return <li key={item}>
+                        {item}</li>})}
+
+                    </CSSTransitionGroup>
+                    </div>
+
+                </ul>
             </div>
         )
     }

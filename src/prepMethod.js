@@ -36,34 +36,23 @@ export class PrepMethod extends React.Component {
     };
 
     render(){
-        const resultRows = this.props.displayPrep.map((item) => {
-            return (
-                <tbody className="Prep">
-                     <tr>
-                         <td>
-                             <input type="radio" name="Prep" 
-                                    value={item}
-                                    onChange={e => this.handleClick(e)}
-                                    onMouseOver={e => this.handleHover(e)} />{item}
-                        </td>   
-                     </tr>
-                </tbody>
-            );
-        }, this);
+        return(
+            <div className="Table">
+                <h4 className="Title">{this.props.textPrep}</h4>
 
-        return (
-            <div>
-                <table className="table">
-                <CSSTransitionGroup
-                    transitionName="fade">
-                    <thead>
-                        <tr>
-                            <th className="Table-header">{this.props.textPrep}</th>
-                        </tr>
-                    </thead>
-                    {resultRows}
-                </CSSTransitionGroup>
-                </table>
+                <ul className="Lists">
+                    <CSSTransitionGroup
+                        transitionName="fade"
+                        transitionEnterTimeout={700}>
+
+                    {this.props.displayPrep.map((item) => {
+                        return <li key={item}>
+                        <input type="radio" name="Prep" value={item} 
+                                onClick={e => this.handleClick(e)} onMouseOver={e => this.handleHover(e)}></input>
+                        {item}</li>})}
+
+                    </CSSTransitionGroup>
+                </ul>
 
                 <h4 class="Dose">{this.state.textDose}</h4>
                 {this.state.displayDose}    

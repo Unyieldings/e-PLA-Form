@@ -29,31 +29,23 @@ export class Duration extends React.Component {
     }
     
     render(){
-        const resultRows = this.props.displayDur.map((item) => {
-            return (
-                <tbody>
-                     <tr>
-                         <td name="Duration" >     
-                         <button className="Required-button" onClick={e => this.handleClick(e)}>Next</button>{item}
-                        </td>                    
-                    </tr>
-                </tbody>
-            );
-        }, this);           
-        return (
-            <div>
-                <table className="table">
-                <CSSTransitionGroup
-                    transitionName="fade"
-                    transitionEnterTimeout={700}>           
-                    <thead>
-                        <tr>
-                            <th className="Table-header">{this.props.textDur}</th>
-                        </tr>
-                    </thead>
-                {resultRows}
-                </CSSTransitionGroup>
-                </table>
+        return(
+            <div className="Table">
+                <h4 className="Title">{this.props.textDur}</h4>
+
+                <ul className="Lists">
+
+                    <CSSTransitionGroup
+                        transitionName="fade"
+                        transitionEnterTimeout={700}>
+
+                    {this.props.displayDur.map((item) => {
+                        return <li key={item}>
+                        <button className="Required-button" onClick={e => this.handleClick(e)}>Next</button>
+                        {item}</li>})}
+
+                    </CSSTransitionGroup>
+                </ul>
                 
                 
        

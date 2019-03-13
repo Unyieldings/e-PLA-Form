@@ -24,34 +24,23 @@ export class Subpop extends React.Component {
     }
 
     render(){
-        const resultRows = this.props.displaySubPop.map((item) => {
-            return (
-                <tbody>
-                     <tr>
-                         <td>
-                             <input type="radio" name="SubPop" 
-                                    value={item}
-                                    onChange={e => this.handleClick(e)} />{item}
-                        </td>   
-                     </tr>
-                </tbody>
-            );
-        }, this);
 
         return (
-            <div>
-                <table className="table">
-                <CSSTransitionGroup
-                    transitionName="fade"
-                    transitionEnterTimeout={700}>
-                    <thead>
-                        <tr>
-                            <th className="Table-header">{this.props.textSubPop}</th>
-                        </tr>
-                    </thead>
-                    {resultRows}
-                </CSSTransitionGroup>
-                </table>
+            <div className="Table">
+                <h4 className="Title">{this.props.textSubPop}</h4>
+
+                <ul className="Lists">
+                    <CSSTransitionGroup
+                        transitionName="fade"
+                        transitionEnterTimeout={700}>
+
+                    {this.props.displaySubPop.map((item) => {
+                        return <li key={item}>
+                        <input type="radio" name="Subpop" value={item} onClick={e => this.handleClick(e)}></input>
+                        {item}</li>})}
+
+                    </CSSTransitionGroup>
+                </ul>
                     
                 <Uses 
                     search={this.props.search}

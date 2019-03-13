@@ -16,8 +16,8 @@ export class Form extends React.Component{
                             placeholder="Enter Ingredient"
                             onChange={this.props.onChange}>
                         </input>
-                    <button className="Submit-button" type="submit">Submit</button>
-                </form>
+                        <button className="Submit-button" type="submit">Submit</button>
+                    </form>
                 </div>
                 
             </div>

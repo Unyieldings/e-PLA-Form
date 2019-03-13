@@ -22,39 +22,29 @@ export class Uses extends React.Component {
                 });   
     };
 
-    render(){
-        const resultRows = this.props.displayUses.map((item) => {
-            return (
-                <tbody className="Uses">
-                     <tr>
-                         <td >
-                             <input type="radio" name="Use"
-                                    key={item} 
-                                    value={item}
-                                    onChange={e => this.handleClick(e)} />{item}
-                        </td>   
-                     </tr>
-                </tbody>
-            );
-        }, this);
-
+    render() {
         return (
-            <div>
-                <table className="table">
-                <CSSTransitionGroup
-                    transitionName="fade"
-                    transitionEnterTimeout={700}>
+            <div className="Table">
+                <h4 className="Title">{this.props.textUses}</h4>
 
-                    <thead>
-                        <tr>
-                            <th className="Table-header-Uses">{this.props.textUses}</th>
-                        </tr>
-                    </thead>
-                    {resultRows}
-                    
-                </CSSTransitionGroup>
-                </table>
-            
+                <ul className="Lists">
+                    <div className="Use">
+
+                    <CSSTransitionGroup
+                        transitionName="fade"
+                        transitionEnterTimeout={700}>
+
+                    {this.props.displayUses.map((item) => {
+                        return <li key={item}>
+                        <input type="radio" name="Use" value={item} onClick={e => this.handleClick(e)}></input>
+                        {item}</li>})}
+
+                    </CSSTransitionGroup>
+
+                    </div>
+                </ul>
+                
+                
                 <PrepMethod 
                     displayPrep={this.state.displayPrep}
                     search={this.props.search}
@@ -62,12 +52,19 @@ export class Uses extends React.Component {
                     resultsUses={this.state.results}
                     resultsSubPop={this.props.resultsSubPop}
                     resultsROA={this.props.resultsROA}
-                    intervalId={this.props.intervalId} />
-
+                    intervalId={this.props.intervalId} /> 
             </div>
-            
-            
-        );
-   }
+
+
+        )
+        
+                    
+                
+        
+                 
+          
+        
+    
+    }
 }
 
