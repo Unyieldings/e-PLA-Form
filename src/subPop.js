@@ -30,6 +30,8 @@ export class Subpop extends React.Component {
                 <h4 className="Title">{this.props.textSubPop}</h4>
 
                 <ul className="Lists">
+                    <div className="Subpop">
+                    
                     <CSSTransitionGroup
                         transitionName="fade"
                         transitionEnterTimeout={700}>
@@ -40,6 +42,7 @@ export class Subpop extends React.Component {
                         {item}</li>})}
 
                     </CSSTransitionGroup>
+                    </div>
                 </ul>
                     
                 <Uses 

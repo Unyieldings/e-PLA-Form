@@ -16,11 +16,18 @@ export class Direction extends React.Component {
 
         this.handleClick = this.handleClick.bind(this);
         this.handleConfirm = this.handleConfirm.bind(this);
+        this.handleHover = this.handleHover.bind(this);
     }
 
     handleConfirm() {
         alert('Request sent for approval')
         clearInterval(this.props.intervalId)
+    }
+
+    handleHover(e) {
+        this.setState({
+            results: e.target.value
+        })
     }
     
     handleClick(e) {    
@@ -42,12 +49,6 @@ export class Direction extends React.Component {
             confirmButton:<button type="submit" onClick={this.handleConfirm}>Confirm</button>
         });
 
-        if(this.props.search.direction === 'n/a') {
-            this.setState({results: ''})
-
-        }else {
-            this.setState({results: e.target.value})
-        }    
     }
 
     render(){
@@ -55,6 +56,7 @@ export class Direction extends React.Component {
             <div className="Table">
                 <h4 className="Title">{this.props.textDire}</h4>
                 <ul className="Lists">
+                    <div className="Direction">
 
                     <CSSTransitionGroup
                         transitionName="fade"
@@ -62,10 +64,13 @@ export class Direction extends React.Component {
 
                     {this.props.displayDire.map((item) => {
                         return <li key={item}>
-                        <button className="Required-button" onClick={e => this.handleClick(e)}>Next</button>
+                        <input type="checkbox" value={item} name="Dire" className="Required-button" 
+                        onClick={e => this.handleClick(e)}
+                        onMouseOver={e => this.handleHover(e)}></input>
                         {item}</li>})}
 
                     </CSSTransitionGroup>
+                    </div>
                 </ul>
             
                 <Risk

@@ -35,15 +35,21 @@ export default class App extends React.Component {
         else if(e.target.value === 'Cinnamon') {
             this.setState({search: Cinnamon})
         }
+    
               
     };
 
     handleSubmit(e) {
         e.preventDefault()
-        this.setState({
-            displayROA: this.state.search.routeOfAdmin,
-            textROA: 'Route(s) of Administration:'
-            })
+        if(this.state.search) {
+            this.setState({
+                displayROA: this.state.search.routeOfAdmin,
+                textROA: 'Route(s) of Administration:'
+                })
+        } else {
+            alert('Invalid monograph name, please refer to monograph names in the dropdown menu.')
+        }
+        
     }
 
     componentDidMount() {

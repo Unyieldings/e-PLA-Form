@@ -1,5 +1,10 @@
 import React from 'react';
 import { Duration } from './duration';
+import { Ashwagandha } from './monographs/Ashwagandha';
+import { Dong_quai } from './monographs/Dong-quai';
+import { Cinnamon } from './monographs/Cinnamon';
+
+let unit = ''
 
 export class Dose extends React.Component {
     constructor(props) {
@@ -9,7 +14,6 @@ export class Dose extends React.Component {
             textDur: '',
             inputDose: '',
             results: [],
-            isValidated: true
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -31,6 +35,12 @@ export class Dose extends React.Component {
     }
     
     render(){
+
+        if(this.props.search === Ashwagandha || this.props.search === Dong_quai || this.props.search === Cinnamon) {
+            unit = 'Grams (g)'
+        }
+        else {unit = 'Milligrams (mg)'};
+
             return (
                 <div className="Table">
                     <h4 className="Dose-title">{this.props.textDose}</h4>
@@ -39,6 +49,7 @@ export class Dose extends React.Component {
                         <input
                             className="Dose-input"
                             type="number" name="Dose" 
+                            placeholder={unit}
                             min={this.props.search.dosage.min}
                             max={this.props.search.dosage.max}
                             step="any"

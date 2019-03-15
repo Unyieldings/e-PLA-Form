@@ -38,9 +38,9 @@ export class Uses extends React.Component {
                         return <li key={item}>
                         <input type="radio" name="Use" value={item} onClick={e => this.handleClick(e)}></input>
                         {item}</li>})}
-
+                        
                     </CSSTransitionGroup>
-
+                        
                     </div>
                 </ul>
                 

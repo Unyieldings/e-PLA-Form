@@ -16,16 +16,9 @@ export class Duration extends React.Component {
     handleClick(e) {
         this.setState({
             displayDire: this.props.search.direction, 
-            textDire: 'Required Directions of Use:'
+            textDire: 'Required Directions of Use:',
+            results: e.target.value
         });
-        if(this.props.search.duration === 'n/a') {
-            this.setState({results: ''})
-            
-        }else {
-            this.setState({
-                results: e.target.value
-            })
-        };  
     }
     
     render(){
@@ -34,6 +27,7 @@ export class Duration extends React.Component {
                 <h4 className="Title">{this.props.textDur}</h4>
 
                 <ul className="Lists">
+                    <div className="Duration">
 
                     <CSSTransitionGroup
                         transitionName="fade"
@@ -41,10 +35,11 @@ export class Duration extends React.Component {
 
                     {this.props.displayDur.map((item) => {
                         return <li key={item}>
-                        <button className="Required-button" onClick={e => this.handleClick(e)}>Next</button>
+                        <input type="checkbox" value={item} name="Dur" className="Required-button" onClick={e => this.handleClick(e)}></input>
                         {item}</li>})}
 
                     </CSSTransitionGroup>
+                    </div>
                 </ul>
                 
                 
@@ -58,7 +53,7 @@ export class Duration extends React.Component {
                     resultsROA={this.props.resultsROA}
                     resultsPrep={this.props.resultsPrep}
                     resultsDose={this.props.resultsDose}
-                    resultsDur={this.state.resultsDur}
+                    resultsDur={this.state.results}
                     intervalId={this.props.intervalId} />
             </div>
         )

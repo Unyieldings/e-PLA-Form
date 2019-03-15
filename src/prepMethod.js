@@ -1,5 +1,6 @@
 import React from 'react';
 import { Dose } from './dose';
+import { Cinnamon } from './monographs/Cinnamon';
 import { CSSTransitionGroup } from 'react-transition-group';
 
 export class PrepMethod extends React.Component {
@@ -8,7 +9,8 @@ export class PrepMethod extends React.Component {
         this.state = {
             displayDose: [],
             textDose: '',
-            results: []
+            results: [],
+            search: Cinnamon
         }
         this.handleClick = this.handleClick.bind(this);
         this.handleHover = this.handleHover.bind(this);
@@ -41,17 +43,20 @@ export class PrepMethod extends React.Component {
                 <h4 className="Title">{this.props.textPrep}</h4>
 
                 <ul className="Lists">
+                    <div className="Prep">
+
                     <CSSTransitionGroup
                         transitionName="fade"
                         transitionEnterTimeout={700}>
 
                     {this.props.displayPrep.map((item) => {
                         return <li key={item}>
-                        <input type="radio" name="Prep" value={item} 
-                                onClick={e => this.handleClick(e)} onMouseOver={e => this.handleHover(e)}></input>
-                        {item}</li>})}
+                        <input type="radio" name="Prep" value={item} onMouseOver={e => this.handleHover(e)} onClick={e => this.handleClick(e)}></input>
+                        {item}</li>
+                        })}
 
                     </CSSTransitionGroup>
+                    </div>
                 </ul>
 
                 <h4 class="Dose">{this.state.textDose}</h4>

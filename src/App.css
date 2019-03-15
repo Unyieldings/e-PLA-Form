@@ -121,29 +121,32 @@ body {
     font-size: 17px;
 }
 
+.Use li {
+    margin-bottom: 10px;  
+}
+
+.Risk li {
+    margin-bottom: 10px;
+    margin-left: -10px;
+    list-style-type: circle;
+}  
+
 .Dose-title {
     margin-bottom: -13px;
 }
 
 .Dose-input {
     margin-bottom: 25px;
-    margin-left: 40px;
-    width: 50px;
+    width: 80px;
+}
+
+.Use, .Subpop, .ROA, .Prep, .Duration, .Direction {
+    margin-left: -45px;
 }
 
 .Required-button {
     margin-right: 10px;
 }
-
-.Risk li {
-    margin-bottom: 10px;
-    list-style-type: circle;
-}
-
-.Use li {
-    margin-bottom: 10px;
-}
-
 
 .Preview-button {
     margin-top: 10px;

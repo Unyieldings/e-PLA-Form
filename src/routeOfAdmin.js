@@ -28,6 +28,8 @@ export class ROA extends React.Component {
                 <h4 className="Title">{this.props.textROA}</h4>
 
                 <ul className="Lists" >
+                    <div className="ROA">      
+                                
                     <CSSTransitionGroup
                         transitionName="fade"
                         transitionEnterTimeout={700}>
@@ -38,6 +40,8 @@ export class ROA extends React.Component {
                         {item}</li>})}
 
                     </CSSTransitionGroup>
+                
+                    </div>
                 </ul>
             
                 <Subpop 
