@@ -10,7 +10,7 @@ export class Dose extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            displayDur: [],
+            displayDur: [], 
             textDur: '',
             inputDose: '',
             results: [],
