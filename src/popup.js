@@ -28,6 +28,7 @@ export class Modal extends React.Component {
 
                         <h3>Required Duration of Use:</h3>
                         {this.props.resultsDur}
+                        
 
                         <h3>Required Directions of Use:</h3>
                         {this.props.resultsDire} 
