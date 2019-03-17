@@ -24,7 +24,7 @@ export class Modal extends React.Component {
                         {this.props.resultsPrep}
 
                         <h3>Dosage:</h3>
-                        {this.props.resultsDose}
+                        {this.props.resultsDose} grams
 
                         <h3>Required Duration of Use:</h3>
                         {this.props.resultsDur}
