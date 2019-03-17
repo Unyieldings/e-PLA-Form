@@ -2,6 +2,7 @@ import React from 'react';
 import { Dose } from './dose';
 import { Cinnamon } from './monographs/Cinnamon';
 import { CSSTransitionGroup } from 'react-transition-group';
+import { SmartPrep } from './smartPrep';
 
 export class PrepMethod extends React.Component {
     constructor(props){
@@ -10,7 +11,8 @@ export class PrepMethod extends React.Component {
             displayDose: [],
             textDose: '',
             results: [],
-            search: Cinnamon
+            
+            
         }
         this.handleClick = this.handleClick.bind(this);
         this.handleHover = this.handleHover.bind(this);
@@ -38,32 +40,44 @@ export class PrepMethod extends React.Component {
     };
 
     render(){
-        return(
-            <div className="Table">
-                <h4 className="Title">{this.props.textPrep}</h4>
+        if (this.props.search === Cinnamon) {
+            return (
+                <div>
+                    {this.props.displaySmartPrep}
+                    <h4 class="Dose">{this.state.textDose}</h4>
+                    {this.state.displayDose}    
 
-                <ul className="Lists">
-                    <div className="Prep">
+                </div>
+            )
+        }else {
+            return(
+                <div className="Table">
+                    <h4 className="Title">{this.props.textPrep}</h4>
+    
+                    <ul className="Lists">
+                        <div className="Prep">
+    
+                        <CSSTransitionGroup
+                            transitionName="fade"
+                            transitionEnterTimeout={700}>
+    
+                        {this.props.displayPrep.map((item) => {
+                            return <li key={item}>
+                            <input type="radio" name="Prep" value={item} onMouseOver={e => this.handleHover(e)} onClick={e => this.handleClick(e)}></input>
+                            {item}</li>
+                            })}
+    
+                        </CSSTransitionGroup>
+                        </div>
+                    </ul>
+        
+        
 
-                    <CSSTransitionGroup
-                        transitionName="fade"
-                        transitionEnterTimeout={700}>
-
-                    {this.props.displayPrep.map((item) => {
-                        return <li key={item}>
-                        <input type="radio" name="Prep" value={item} onMouseOver={e => this.handleHover(e)} onClick={e => this.handleClick(e)}></input>
-                        {item}</li>
-                        })}
-
-                    </CSSTransitionGroup>
-                    </div>
-                </ul>
-
-                <h4 class="Dose">{this.state.textDose}</h4>
-                {this.state.displayDose}    
+                    <h4 class="Dose">{this.state.textDose}</h4>
+                    {this.state.displayDose}    
 
             </div>
-        )
-    }
+            )
+    }}
 
 }

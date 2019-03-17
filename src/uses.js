@@ -2,6 +2,7 @@ import React from 'react';
 import { PrepMethod } from './prepMethod';
 import { CSSTransitionGroup } from 'react-transition-group';
 import { Cinnamon } from './monographs/Cinnamon';
+import { SmartPrep } from './smartPrep';
 
 export class Uses extends React.Component {
     constructor(props) {
@@ -9,17 +10,44 @@ export class Uses extends React.Component {
         this.state = {
             displayPrep: [],
             textPrep: '',
-            results: []
+            results: [],
+            smartPrep: '',
+            displaySmartPrep: ''
+            
         }
         this.handleClick = this.handleClick.bind(this)
     }
 
     handleClick(e) {
+        if(this.props.search === Cinnamon) {
+            this.setState({
+                displaySmartPrep: <SmartPrep
+                                    smartPrep={this.state.smartPrep}
+                                    
+                                    />
+            })
+
+            if(e.target.value === this.props.search.Uses[0] || 
+                e.target.value === this.props.search.Uses[2] || 
+                e.target.value === this.props.search.Uses[3] ) {
                 this.setState({
-                    displayPrep: this.props.search.prepMethod,
-                    textPrep: "Preparation:",
+                    smartPrep: this.props.search.prepMethod[0],
+                    
                     results: e.target.value
-                });   
+                    })
+            }else if(e.target.value === this.props.search.Uses[1]) {
+                this.setState({
+                    smartPrep: this.props.search.prepMethod[1],
+                    results: e.target.value
+                })
+            }
+        }else {
+            this.setState({displayPrep: this.props.search.prepMethod})
+        }
+                
+        this.setState({
+            textPrep: "Preparation:",
+            results: e.target.value })
     };
 
     render() {
@@ -52,7 +80,10 @@ export class Uses extends React.Component {
                     resultsUses={this.state.results}
                     resultsSubPop={this.props.resultsSubPop}
                     resultsROA={this.props.resultsROA}
-                    intervalId={this.props.intervalId} /> 
+                    intervalId={this.props.intervalId} 
+                    
+                    smartPrep={this.state.smartPrep}
+                    displaySmartPrep={this.state.displaySmartPrep} />
             </div>
 
 
